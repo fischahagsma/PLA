@@ -61,7 +61,8 @@ def make3Errors(message):
         message[i] = random.choice(alphabet)
     return ''.join(message)
 
-'''
+
+
 print("Исходное сообщение: ", message)
 print("Индексное представление: ", message_index)
 
@@ -76,6 +77,3 @@ for mat in [A, B, C]:
     print("Расшифрованное сообщение: ", decryptedMeassage)
     print("Зашифрованное сообщение с ошибками: ", encryptMessageWithErrors)
     print("Расшифрованное сообщение c ошибками: ", decryptedMessageWithErrors)
-
-
-'''
