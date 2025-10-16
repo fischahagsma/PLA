@@ -1,14 +1,14 @@
 import sympy as sp
 import random
 
-russian_letters = list("абвгдеёжзийклмнопрстуфхцчшщъыьэюя")
+russian_letters = list("приветм")
 extras = [" ", "."]
 alphabet = russian_letters + extras
-for i in range(len(alphabet)):
-    print(i, end=' & ')
+
 char_to_index = {ch: i for i, ch in enumerate(alphabet)}
 index_to_char = {i: ch for i, ch in enumerate(alphabet)}
 print(len(alphabet))
+print(alphabet)
 message = "привет мир ."
 message_index = [char_to_index[i] for i in message]
 
@@ -62,18 +62,22 @@ def make3Errors(message):
     return ''.join(message)
 
 
-
 print("Исходное сообщение: ", message)
 print("Индексное представление: ", message_index)
 
 
 for mat in [A, B, C]:
     print("\nМатрица ключа:\n", mat)
+    temp = MatrixToList(hill_encrypt(mat, message_index, len(alphabet)))
     encryptMessage = IndexToChar(MatrixToList(hill_encrypt(mat, message_index, len(alphabet))), alphabet)
     encryptMessageWithErrors = make3Errors(encryptMessage)
     decryptedMeassage = IndexToChar(MatrixToList(hill_decrypt(mat, CharToIndex(encryptMessage, alphabet), len(alphabet))), alphabet)
     decryptedMessageWithErrors = IndexToChar(MatrixToList(hill_decrypt(mat, CharToIndex(encryptMessageWithErrors, alphabet), len(alphabet))), alphabet)
     print("Зашифрованное сообщение: ", encryptMessage)
+    print("Зашифрованное сообщение в цифрах: ", temp)
+    print("Зашифрованное сообщение с 3 ошибками: ", encryptMessageWithErrors)
     print("Расшифрованное сообщение: ", decryptedMeassage)
     print("Зашифрованное сообщение с ошибками: ", encryptMessageWithErrors)
     print("Расшифрованное сообщение c ошибками: ", decryptedMessageWithErrors)
+
+
