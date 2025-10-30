@@ -79,5 +79,3 @@ for mat in [A, B, C]:
     print("Расшифрованное сообщение: ", decryptedMeassage)
     print("Зашифрованное сообщение с ошибками: ", encryptMessageWithErrors)
     print("Расшифрованное сообщение c ошибками: ", decryptedMessageWithErrors)
-
-
