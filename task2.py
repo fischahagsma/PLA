@@ -98,6 +98,8 @@ print("Расшифрованное сообщение 1: ", IndexToChar(MatrixT
 print("Зашифрованное сообщение 2 в цифрах: ", message2_encrypt)
 print("Расшифрованное сообщение 2: ", IndexToChar(MatrixToList(hill_decrypt(K, message2_encrypt, len(alphabet))), alphabet))
 print("Расшифрованное сообщение 2: ", CharToIndex(message2, alphabet))
-
-
-
+P1 = sp.Matrix([[message1_index[0], message1_index[2]],
+                [message1_index[1], message1_index[3]]])
+C1 = sp.Matrix([[message1_encrypt[0], message1_encrypt[2]],
+                [message1_encrypt[1], message1_encrypt[3]]])
+K1 = C1 * P1.inv_mod(len(alphabet)) % len(alphabet)
